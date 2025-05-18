@@ -1,0 +1,41 @@
+> Functional Requirements
+- get unique shortened url
+- redirect shortened url
+- link analytics
+
+> Non-Functional Requirements
+- low latency
+- 10k daily active users
+- 1M reads/day - 1k reads/sec
+- 5B lifetime URLs
+
+
+> API Design
+
+POST /api/v1/urls/shorten
+req: long url
+res: short url
+
+GET /{shortUrl}
+res: Redirect 302
+
+
+> High Level Design
+[system_design_img__1]
+
+
+> Database Design
+
+Table: urls
+- id: string
+- shortUrl: string
+- longUrl: string
+- createdAt: datetime
+- updatedAt: datetime
+
+Table: analytics
+- urlId: string
+- hits: int
+- createdAt: datetime
+- updatedAt: datetime
+
