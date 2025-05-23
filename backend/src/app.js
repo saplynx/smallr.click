@@ -13,7 +13,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send(`smallr.click backend`);
+    res.send("smallr.click backend");
 });
 
 app.get("/:shortId", redirection);
@@ -21,7 +21,7 @@ app.get("/:shortId", redirection);
 app.use(`/api/${API_VERSION}`, router);
 
 router.get("/", (req, res) => {
-    res.send(`Root endpoint`);
+    res.send("Root endpoint");
 });
 
 router.post("/", shortener);
