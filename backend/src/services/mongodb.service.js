@@ -1,5 +1,9 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
-const { dev_connection_url: MONGODB_URL } = require("../config/mongodb.config");
+const MONGODB_URL =
+    process.env.ENVIRONMENT == "dev"
+        ? process.env.MONGODB_URL + "dev"
+        : process.env.MONGODB_URL + "prod";
 
 class MongooseClient {
     constructor() {

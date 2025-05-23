@@ -1,8 +1,9 @@
+require("dotenv").config();
 const ShortUniqueId = require("short-unique-id");
 const { randomUUID } = new ShortUniqueId({ length: 6 });
 const duplicateChecker = require("../utils/duplicateChecker");
 const Url = require("../models/url.model");
-const { DOMAIN } = require("../config/env");
+const DOMAIN = process.env.DOMAIN;
 
 async function shortener(req, res, next) {
     try {

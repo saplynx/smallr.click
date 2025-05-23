@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
-const { API_VERSION } = require("./config/env");
+const API_VERSION = process.env.API_VERSION;
 const MongooseClient = require("./services/mongodb.service");
 const shortener = require("./controllers/shortener.controller");
 const redirection = require("./controllers/redirection.controller");
